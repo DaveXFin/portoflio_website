@@ -22,9 +22,8 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
 }) => {
   const cardContent = (
     <div
-      className="block flex-1 p-6 bg-white border border-gray-200 rounded-lg shadow-sm 
-                 hover:bg-gray-100 dark:bg-gray-900 dark:border-gray-800 dark:hover:bg-gray-700
-                 transition-colors duration-200"
+      className="block flex-1 p-6 bg-white border border-gray-200 rounded-lg 
+       dark:bg-gray-900 dark:border-gray-800"
     >
       <h5 className="mb-1 text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
         {title}

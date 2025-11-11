@@ -10,7 +10,8 @@ export default function Page() {
       </h1>
       <p className="mb-4">
         {`I am David Xu a software developer and digital transformation associate based in Amsterdam, Netherlands. Welcome to my personal portfolio/blog 
-        where I will share and showcase some projects that I have been working on.`}
+        where I will share and showcase some projects that I have been working on. This is a casual space for me to document my journey as a junior developer. 
+        Feel free to explore my work experience and projects below!`}
       </p>
 
       
