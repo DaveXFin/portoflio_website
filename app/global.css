@@ -1,8 +1,68 @@
 @import 'tailwindcss';
 
-::selection {
-  background-color: #47a3f3;
-  color: #fefefe;
+/* Class based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Manual dark mode overrides for Tailwind v4 compatibility */
+html.dark {
+  color-scheme: dark;
+  background-color: #2C3930;
+  transition: background-color 1s ease, color 1s ease;
+}
+
+html:not(.dark) {
+  color-scheme: light;
+  background-color: #DCD7C9;
+  transition: background-color 1s ease, color 1s ease;
+}
+
+/* Default text colors */
+html.dark body {
+  color: #ffffff;
+}
+
+html:not(.dark) body {
+  color: #000000;
+}
+
+/* Additional color palette for reference:
+   Dark accent: #3F4F44
+   Light accent: #A27B5C
+*/
+
+/* Experience card styling for light and dark modes */
+.experience-card {
+  background-color: #3F4F44;
+  border: 2px solid #2C3930;
+}
+
+.dark .experience-card {
+  background-color: #A27B5C !important;
+  border-color: #8B6647 !important;
+}
+
+.experience-card-title {
+  color: white;
+}
+
+.dark .experience-card-title {
+  color: #1a1a1a !important;
+}
+
+.experience-card-subtitle {
+  color: #e5e5e5;
+}
+
+.dark .experience-card-subtitle {
+  color: #2C3930 !important;
+}
+
+.experience-card-text {
+  color: #f5f5f5;
+}
+
+.dark .experience-card-text {
+  color: #1a1a1a !important;
 }
 
 :root {
@@ -17,16 +77,11 @@
   --sh-entity: #e25a1c;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --sh-class: #4c97f8;
-    --sh-identifier: white;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
-  }
-  html {
-    color-scheme: dark;
-  }
+.dark {
+  --sh-class: #4c97f8;
+  --sh-identifier: white;
+  --sh-keyword: #f47067;
+  --sh-string: #0fa295;
 }
 
 html {
@@ -84,36 +139,84 @@ html {
 }
 
 .prose p {
-  @apply my-4 text-neutral-800 dark:text-neutral-200;
+  @apply my-4;
+  color: #1a1a1a;
+}
+.dark .prose p {
+  color: #f5f5f5;
 }
 
 .prose h1 {
   @apply text-4xl font-medium tracking-tight mt-6 mb-2;
+  color: #000000;
+}
+
+.dark .prose h1 {
+  color: #ffffff;
 }
 
 .prose h2 {
   @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  color: #000000;
+}
+
+.dark .prose h2 {
+  color: #ffffff;
 }
 
 .prose h3 {
   @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  color: #000000;
+}
+
+.dark .prose h3 {
+  color: #ffffff;
 }
 
 .prose h4 {
   @apply text-lg font-medium tracking-tight mt-6 mb-2;
+  color: #000000;
+}
+
+.dark .prose h4 {
+  color: #ffffff;
 }
 
 .prose strong {
   @apply font-medium;
+  color: inherit;
 }
 
 .prose ul {
   @apply list-disc pl-6;
+  color: #1a1a1a;
+}
+
+.dark .prose ul {
+  color: #f5f5f5;
 }
 
 .prose ol {
   @apply list-decimal pl-6;
+  color: #1a1a1a;
 }
+
+.dark .prose ol {
+  color: #f5f5f5;
+}
+
+
+.prose a {
+  @apply underline transition-all underline-offset-2;
+  color: #2C3930;
+  text-decoration-color: #3F4F44;
+}
+
+.dark .prose a {
+  color: #A27B5C;
+  text-decoration-color: #8B6647;
+}
+
 
 .prose > :first-child {
   /* Override removing top margin, causing layout shift */

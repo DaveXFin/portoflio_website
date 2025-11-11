@@ -22,17 +22,17 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
 }) => {
   const cardContent = (
     <div
-      className="block flex-1 p-6 bg-white border border-gray-200 rounded-lg 
-       dark:bg-gray-900 dark:border-gray-800"
+      className="experience-card block flex-1 p-6 rounded-lg shadow-md
+       hover:shadow-lg transition-all duration-300"
     >
-      <h5 className="mb-1 text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+      <h5 className="experience-card-title mb-1 text-xl font-semibold tracking-tight">
         {title}
       </h5>
-      <h6 className="text-sm text-gray-500 dark:text-gray-400 mb-3">
+      <h6 className="experience-card-subtitle text-sm mb-3 font-medium">
         {company} • {period}
       </h6>
 
-      <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+      <ul className="experience-card-text list-disc pl-5 space-y-1">
         {description.map((item, index) => (
           <li key={index}>{item}</li>
         ))}

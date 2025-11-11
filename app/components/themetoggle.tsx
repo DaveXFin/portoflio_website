@@ -10,6 +10,11 @@ export default function ThemeToggle() {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Debug: log theme changes
+  useEffect(() => {
+    console.log('Current theme:', theme);
+  }, [theme]);
   if (!mounted) {
     return null; // Or a loading skeleton
   }
