@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { highlight } from 'sugar-high'
 import React from 'react'
-import { compile, run } from '@mdx-js/mdx'
+import { evaluate } from '@mdx-js/mdx'
 import * as runtime from 'react/jsx-runtime'
 
 function Table({ data }) {
@@ -101,11 +101,10 @@ let components = {
 }
 
 export async function CustomMDX({ source, ...props }) {
-  const code = String(await compile(source, { outputFormat: 'function-body' }))
-  const { default: MDXContent } = await run(code, {
+  const { default: MDXContent } = await evaluate(source, {
     ...runtime,
-    baseUrl: import.meta.url,
-  })
+    development: false,
+  }) as any
 
   return <MDXContent components={{ ...components, ...(props.components || {}) }} />
 }
