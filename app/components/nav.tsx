@@ -1,5 +1,9 @@
+'use client';
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import ThemeToggle from './themetoggle'
+import { motion } from 'framer-motion'
 
 const navItems = {
   '/': {
@@ -14,28 +18,48 @@ const navItems = {
 }
 
 export function Navbar() {
+  const pathname = usePathname()
+
   return (
     <aside className="-ml-[8px] mb-16 tracking-tight">
       <div className="lg:sticky lg:top-20">
-        <nav
-          className="flex flex-row items-center justify-between relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
+        <motion.nav
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="navbar-container flex flex-row items-center justify-between relative px-4 py-3 rounded-lg fade md:overflow-auto scroll-pr-6 md:relative"
           id="nav"
         >
-          <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
+          <div className="flex flex-row space-x-2">
+            {Object.entries(navItems).map(([path, { name }], index) => {
+              const isActive = pathname === path
               return (
-                <Link
+                <motion.div
                   key={path}
-                  href={path}
-                  className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.3 }}
                 >
-                  {name}
-                </Link>
+                  <Link
+                    href={path}
+                    className={`nav-link relative py-2 px-4 rounded-md transition-all duration-300 ${
+                      isActive ? 'nav-link-active' : ''
+                    }`}
+                  >
+                    {name}
+                  </Link>
+                </motion.div>
               )
             })}
           </div>
-          <ThemeToggle />
-        </nav>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 0.3 }}
+          >
+            <ThemeToggle />
+          </motion.div>
+        </motion.nav>
       </div>
     </aside>
   )
