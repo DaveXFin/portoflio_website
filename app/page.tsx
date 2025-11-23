@@ -37,7 +37,7 @@ export default function Page() {
         "Contributed to pre-launch testing for the mobile MVP, identifying and documenting 5 critical issues that improved release stability and reduced post-launch bugs.",
         "Implemented front-end improvements based on user feedback, leading to a more seamless user-friendly experience.",
       ],
-      details: "At 8by8, I gained hands-on experience with mobile development and quality assurance. The pre-launch testing phase was crucial in ensuring a smooth product release, and my contributions directly impacted the user experience of thousands of early adopters.",
+      details: "At 8by8, I gained hands-on experience with mobile development and quality assurance. The pre-launch testing phase was crucial in ensuring a smooth product release, and my contributions directly impacted the user experience of early adopters.",
     },
     {
       title: "Digital transformation Intern",
