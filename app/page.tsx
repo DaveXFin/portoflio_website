@@ -15,7 +15,7 @@ export default function Page() {
         "Created a dashboard using RShiny with Posit enable it to be quantified for comparison across other pharmaceutical names, improving accuracy in internal workflows.",
         "Managed and maintained a MS Power Automate tool for files automation checking speeding the process by 66%.",
       ],
-      details: "Working at the European Medicines Agency, I focused on digital transformation initiatives that significantly improved operational efficiency. The translation platform I developed became a cornerstone tool for the agency, processing thousands of documents monthly and receiving positive feedback from multiple departments.",
+      details: "Working at the European Medicines Agency, I focused on digital transformation initiatives that significantly improved operational efficiency. The translation platform I developed which became a widely used tool for the agency, processing thousands of documents monthly and receiving positive feedback from multiple departments. Saving the agency substantial costs, upwards of 120,000 to 150,000 euros annually. While I deliveing and led a project, I also took the intiative to help in colleagues work such technical(programming), documentation and administrative tasks.",
     },
     {
       title: "Co-Founder",
@@ -27,7 +27,7 @@ export default function Page() {
         "Integrated the Google firebase as the user management and security.",
         "Co-planned and launched the marketing along with designing the application's trailer video.",
       ],
-      details: "dVox was an ambitious project exploring Web3 social media. We built a fully decentralized platform where users owned their content through blockchain technology. This experience taught me valuable lessons about startup development, team collaboration, and emerging technologies.",
+      details: "dVox was an project set to exploring the implementation of crypto technology with social media. We built a fully decentralized platform where users owned their content through blockchain technology. This experience taught me valuable lessons about startup development, team collaboration, and emerging technologies.",
     },
     {
       title: "Software Engineer Intern",
@@ -47,7 +47,7 @@ export default function Page() {
         "Developed marketing solutions for Dr. David Lee to showcase and promote his research focus on cirrhosis and introduce the research team to attract more funding, public interest and raise general awareness.",
         "Created a plagiarism checking tool for the research team, comparing to the previous publications. This sped up the teams efficiency by 80%.",
       ],
-      details: "This internship introduced me to the intersection of healthcare and technology. Working with medical researchers, I learned to translate complex medical concepts into accessible digital content while building tools that streamlined their research workflows.",
+      details: "This unpaid part time introduced me to the intersection of healthcare and technology. Working with medical researchers, I learned to analyze complex medical concepts into accessible digital content while building tools that streamlined their research workflows. I helpe dthe research to gain more visibility for funding through using simple Google Sites, as it was the optimal solution especially after leaving it allows the non-technical team to easily update and maintain the site themselves.",
     },
   ];
 

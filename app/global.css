@@ -238,7 +238,7 @@ html:not(.dark) body {
 }
 
 .dark .experience-card-text {
-  color: #ffffff !important;
+  color: #1a1a1a !important;
 }
 
 /* Learn More Button */
@@ -272,7 +272,7 @@ html:not(.dark) body {
 }
 
 .dark .experience-card-details {
-  border-color: rgba(26, 26, 26, 0.3);
+  border-color: rgba(234, 231, 231, 0.3);
 }
 
 .dark {
