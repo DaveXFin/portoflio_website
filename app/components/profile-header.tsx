@@ -6,7 +6,7 @@ export default function ProfileHeader() {
       {/* Profile Image */}
       <div className="profile-image-container shrink-0">
         <Image
-          src="https://ui-avatars.com/api/?name=David+Xu&size=150&background=3F4F44&color=fff&bold=true"
+          src="/profile.png"
           alt="David Xu - Software Developer"
           width={150}
           height={150}
