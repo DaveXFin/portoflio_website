@@ -27,7 +27,9 @@ export default function ProfileHeader() {
         <p className="intro-text">
           Based in Amsterdam, Netherlands. Welcome to my personal portfolio/blog
           where I share and showcase projects I've been working on. This is a casual
-          space for me to document my journey as a junior developer.
+          space for me to document my journey as a junior developer. Currently I am working on
+          expanding my skills in full-stack development and exploring opportunities in tech. 
+          I have a active travel planning app project which I am documenting on the blog section.
         </p>
       </div>
     </div>
