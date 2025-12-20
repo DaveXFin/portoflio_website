@@ -37,7 +37,7 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
         {!isLast && (
           <motion.div
             initial={{ height: 0 }}
-            whileInView={{ height: "calc(150% + 10rem)" }}
+            whileInView={{ height: "calc(100% + 6rem)" }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
             className="timeline-line w-0.5 flex-1 mt-2"

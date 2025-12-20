@@ -27,7 +27,7 @@ export function Navbar() {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="navbar-container flex flex-row items-center justify-between relative px-4 py-3 rounded-lg fade md:overflow-auto scroll-pr-6 md:relative"
+          className="navbar-container flex flex-row items-center justify-between relative px-4 py-3 rounded-lg"
           id="nav"
         >
           <div className="flex flex-row space-x-2">

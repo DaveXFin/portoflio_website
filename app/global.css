@@ -32,48 +32,101 @@ html:not(.dark) body {
 
 /* Navbar styling */
 .navbar-container {
-  background-color: rgba(63, 79, 68, 0.1);
-  border: 1px solid #3F4F44;
-  backdrop-filter: blur(10px);
+  background-color: transparent;
 }
 
 .dark .navbar-container {
-  background-color: rgba(162, 123, 92, 0.15);
-  border-color: #A27B5C;
+  background-color: transparent;
 }
 
 .nav-link {
+  position: relative;
+  display: block;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  text-decoration: none;
   color: #2C3930;
-  font-weight: 500;
+  font-weight: 600;
+  transition: 0.5s;
+  z-index: 1;
 }
 
 .dark .nav-link {
   color: #A27B5C;
 }
 
-.nav-link:hover {
-  background-color: rgba(63, 79, 68, 0.2);
-  color: #3F4F44;
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top: 2px solid #3F4F44;
+  border-bottom: 2px solid #3F4F44;
+  transform: scaleY(2);
+  opacity: 0;
+  transition: 0.3s;
 }
 
-.dark .nav-link:hover {
-  background-color: rgba(162, 123, 92, 0.2);
-  color: #8B6647;
+.dark .nav-link::before {
+  border-top-color: #A27B5C;
+  border-bottom-color: #A27B5C;
 }
 
-.nav-link-active {
+.nav-link::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: #3F4F44;
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.3s;
+  z-index: -1;
+}
+
+.dark .nav-link::after {
+  background-color: #A27B5C;
+}
+
+.nav-link:hover {
   color: white;
 }
 
+.dark .nav-link:hover {
+  color: #1a1a1a;
+}
+
+.nav-link:hover::before {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.nav-link:hover::after {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.nav-link-active {
+  color: white;
+  font-weight: 700;
+}
+
 .dark .nav-link-active {
-  background-color: #A27B5C !important;
   color: #1a1a1a !important;
 }
 
-.dark .nav-link-active:hover {
-  background-color: #8B6647 !important;
-  color: #000000 !important;
+.nav-link-active::before {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.nav-link-active::after {
+  transform: scaleY(1);
+  opacity: 1;
 }
 
 /* Profile Header Styling */
@@ -238,7 +291,7 @@ html:not(.dark) body {
 }
 
 .dark .experience-card-text {
-  color: #1a1a1a !important;
+  color: #ffffff !important;
 }
 
 /* Learn More Button */
@@ -273,6 +326,33 @@ html:not(.dark) body {
 
 .dark .experience-card-details {
   border-color: rgba(234, 231, 231, 0.3);
+}
+
+/* Experience card back side styling */
+.experience-card-back {
+  background-color: #2C3930;
+  border: 2px solid #3F4F44;
+}
+
+.dark .experience-card-back {
+  background-color: #8B6647 !important;
+  border-color: #A27B5C !important;
+}
+
+.experience-card-back-title {
+  color: white;
+}
+
+.dark .experience-card-back-title {
+  color: #1a1a1a !important;
+}
+
+.experience-card-back-text {
+  color: #f5f5f5;
+}
+
+.dark .experience-card-back-text {
+  color: #ffffff !important;
 }
 
 .dark {
@@ -449,3 +529,8 @@ table {
 .title {
   text-wrap: balance;
 }
+
+
+
+
+

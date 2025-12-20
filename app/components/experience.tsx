@@ -5,8 +5,7 @@ A reusable Work Experience Card component for displaying job roles with title, c
 
 import React, { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Box, Heading, Text, Button, VStack, Stack } from "@chakra-ui/react";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { Box, Heading, Text, VStack, Stack } from "@chakra-ui/react";
 
 interface WorkExperienceCardProps {
   title: string;
@@ -23,138 +22,138 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
   description,
   details = "Additional details about this role and key achievements.",
 }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
 
   const MotionBox = motion.create(Box);
 
   return (
-    <MotionBox
+    <Box
       ref={ref}
-      initial={{ scale: 0.95, opacity: 1, y: 30 }}
-      animate={{
-        scale: isInView ? 1 : 1,
-        opacity: isInView ? 1 : 1.1,
-        y: isInView ? 0 : 30,
-      }}
-      transition={{
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94], // Cubic bezier for smoother animation
-        scale: { duration: 0.6 },
-        opacity: { duration: 1 },
-      }}
-      whileHover={{
-        scale: 1.02,
-        y: -8,
-        transition: {
-          duration: 0.3,
-          ease: [0.34, 1.56, 0.64, 1], // Spring-like easing for bounce
-        },
-      }}
-      className="experience-card"
-      p={8}
-      borderRadius="xl"
-      boxShadow="lg"
-      _hover={{ boxShadow: "2xl" }}
-      position="relative"
-      overflow="hidden"
       mb={6}
+      style={{ perspective: "1000px" }}
+      cursor="pointer"
+      onClick={() => setIsFlipped(!isFlipped)}
+      minH="400px"
+      position="relative"
     >
-      <VStack align="start" gap={4}>
-        <Box>
-          <Heading as="h5" size="lg" className="experience-card-title" mb={1}>
-            {title}
-          </Heading>
-          <Text
-            fontSize="sm"
-            className="experience-card-subtitle"
-            fontWeight="medium"
-          >
-            {company} • {period}
-          </Text>
-        </Box>
-
-        <Stack gap={2} w="full">
-          {description.map((item, index) => (
-            <Text
-              key={index}
-              fontSize="sm"
-              className="experience-card-text"
-              pl={4}
-              position="relative"
-              _before={{
-                content: '"•"',
-                position: "absolute",
-                left: 0,
-              }}
-            >
-              {item}
-            </Text>
-          ))}
-        </Stack>
-
-        {/* Expandable "Learn More" Section */}
-        <Box w="full">
-          <motion.div
-            initial={false}
-            animate={{
-              height: isExpanded ? "auto" : 0,
-              opacity: isExpanded ? 1 : 0,
-            }}
-            transition={{ duration: 0.3 }}
-            style={{ overflow: "hidden" }}
-          >
-            <Box
-              pt={4}
-              mt={4}
-              borderTopWidth="1px"
-              borderColor="whiteAlpha.300"
-              className="experience-card-details"
-            >
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0.3, y: 30 }}
+        animate={{
+          scale: isInView ? 1 : 0.95,
+          opacity: isInView ? 1 : 0.3,
+          y: isInView ? 0 : 30,
+          rotateY: isFlipped ? 180 : 0,
+        }}
+        transition={{
+          duration: 0.6,
+          ease: [0.25, 0.46, 0.45, 0.94],
+          scale: { duration: 0.6 },
+          opacity: { duration: 0.4 },
+          rotateY: { duration: 0.6 },
+        }}
+        whileHover={{
+          y: -8,
+          transition: {
+            duration: 0.3,
+            ease: [0.34, 1.56, 0.64, 1],
+          },
+        }}
+        style={{
+          transformStyle: "preserve-3d",
+          position: "relative",
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        {/* Front Side */}
+        <MotionBox
+          className="experience-card"
+          p={8}
+          borderRadius="xl"
+          boxShadow="lg"
+          _hover={{ boxShadow: "2xl" }}
+          position="absolute"
+          width="100%"
+          minH="400px"
+          style={{
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+          }}
+        >
+          <VStack align="start" gap={4}>
+            <Box>
+              <Heading as="h5" size="lg" className="experience-card-title" mb={1}>
+                {title}
+              </Heading>
               <Text
                 fontSize="sm"
-                className="experience-card-text"
-                lineHeight="tall"
+                className="experience-card-subtitle"
+                fontWeight="medium"
               >
-                {details}
+                {company} • {period}
               </Text>
             </Box>
-          </motion.div>
 
-          {/* Learn More Button */}
-          <Button
-            onClick={() => setIsExpanded(!isExpanded)}
-            size="sm"
-            variant="ghost"
-            className="learn-more-btn"
-            mt={4}
-          >
-            {isExpanded ? "Show Less" : "Learn More"}
-            {isExpanded ? (
-              <FiChevronUp style={{ marginLeft: "8px" }} />
-            ) : (
-              <FiChevronDown style={{ marginLeft: "8px" }} />
-            )}
-          </Button>
-        </Box>
-      </VStack>
+            <Stack gap={2} w="full">
+              {description.map((item, index) => (
+                <Text
+                  key={index}
+                  fontSize="sm"
+                  className="experience-card-text"
+                  pl={4}
+                  position="relative"
+                  _before={{
+                    content: '"•"',
+                    position: "absolute",
+                    left: 0,
+                  }}
+                >
+                  {item}
+                </Text>
+              ))}
+            </Stack>
 
-      {/* Glow effect when in view */}
-      {isInView && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.1 }}
+            <Text fontSize="xs" className="experience-card-subtitle" mt={2} fontStyle="italic">
+              Click to learn more →
+            </Text>
+          </VStack>
+        </MotionBox>
+
+        {/* Back Side */}
+        <MotionBox
+          className="experience-card-back"
+          p={8}
+          borderRadius="xl"
+          boxShadow="lg"
+          position="absolute"
+          width="100%"
+          minH="400px"
           style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(to bottom right, transparent, rgba(255,255,255,0.2), transparent)",
-            pointerEvents: "none",
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
           }}
-        />
-      )}
-    </MotionBox>
+        >
+          <VStack align="start" gap={4} h="full" justify="center">
+            <Heading as="h5" size="md" className="experience-card-back-title" mb={2}>
+              Details
+            </Heading>
+            <Text
+              fontSize="sm"
+              className="experience-card-back-text"
+              lineHeight="tall"
+            >
+              {details}
+            </Text>
+            <Text fontSize="xs" className="experience-card-subtitle" mt={2} fontStyle="italic">
+              ← Click to go back
+            </Text>
+          </VStack>
+        </MotionBox>
+      </motion.div>
+    </Box>
   );
 };
 
