@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(bun add:*)",
+      "Bash(pnpm dlx:*)",
+      "Bash(printf \"y\\\\n\\\\n\\\\n\\\\n\")",
+      "Bash(pnpm build:*)"
+    ]
+  }
+}

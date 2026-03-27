@@ -9,40 +9,24 @@ interface TimelineItemProps {
   index: number;
 }
 
-export const TimelineItem: React.FC<TimelineItemProps> = ({
-  children,
-  isLast = false,
-  index
-}) => {
+export const TimelineItem: React.FC<TimelineItemProps> = ({ children, index }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -20 }}
+      initial={{ opacity: 0, x: -16 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="timeline-item relative flex gap-6 pb-12 mb-8"
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.7, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+      className="timeline-item relative flex gap-6 pb-8"
     >
-      {/* Timeline Line and Dot */}
-      <div className="timeline-connector flex flex-col items-center">
-        {/* Dot */}
+      {/* Dot — centered on the continuous line */}
+      <div className="flex flex-col items-center shrink-0 w-4 pt-1">
         <motion.div
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
+          transition={{ type: "spring", stiffness: 200, damping: 20, delay: index * 0.12 + 0.15 }}
           className="timeline-dot w-4 h-4 rounded-full z-10"
         />
-
-        {/* Vertical Line - Extended length */}
-        {!isLast && (
-          <motion.div
-            initial={{ height: 0 }}
-            whileInView={{ height: "calc(100% + 6rem)" }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
-            className="timeline-line w-0.5 flex-1 mt-2"
-          />
-        )}
       </div>
 
       {/* Content */}
@@ -55,7 +39,12 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
 
 export const Timeline: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div className="timeline-container">
+    <div className="timeline-container relative">
+      {/* Single continuous line behind all dots */}
+      <div
+        className="timeline-line absolute w-0.5"
+        style={{ left: "8px", top: "6px", bottom: "6px" }}
+      />
       {children}
     </div>
   );

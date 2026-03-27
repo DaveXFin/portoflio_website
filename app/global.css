@@ -133,14 +133,18 @@ html:not(.dark) body {
 .profile-header {
   padding: 1.5rem;
   border-radius: 0.75rem;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 1px solid #3F4F44;
+  background-color: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(63, 79, 68, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: all 0.3s ease;
 }
 
 .dark .profile-header {
-  background-color: rgba(162, 123, 92, 0.1);
-  border-color: #A27B5C;
+  background-color: rgba(44, 57, 48, 0.65);
+  border-color: rgba(162, 123, 92, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .profile-image-container {
@@ -219,27 +223,25 @@ html:not(.dark) body {
 
 .timeline-line {
   background: linear-gradient(to bottom, #3F4F44 0%, #2C3930 100%);
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .dark .timeline-line {
   background: linear-gradient(to bottom, #A27B5C 0%, #8B6647 100%);
-  opacity: 0.6;
-}
-
-.timeline-connector {
-  min-width: 1rem;
+  opacity: 0.5;
 }
 
 /* Welcome card styling for light and dark modes */
 .welcome-card {
-  background-color: #3F4F44;
-  border: 2px solid #2C3930;
+  background-color: rgba(63, 79, 68, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .dark .welcome-card {
-  background-color: #A27B5C !important;
-  border-color: #8B6647 !important;
+  background-color: rgba(162, 123, 92, 0.82) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .welcome-card-title {
@@ -261,13 +263,15 @@ html:not(.dark) body {
 
 /* Experience card styling for light and dark modes */
 .experience-card {
-  background-color: #3F4F44;
-  border: 2px solid #2C3930;
+  background-color: rgba(63, 79, 68, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .dark .experience-card {
-  background-color: #A27B5C !important;
-  border-color: #8B6647 !important;
+  background-color: rgba(162, 123, 92, 0.82) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .experience-card-title {
@@ -328,25 +332,7 @@ html:not(.dark) body {
   border-color: rgba(234, 231, 231, 0.3);
 }
 
-/* Experience card back side styling */
-.experience-card-back {
-  background-color: #2C3930;
-  border: 2px solid #3F4F44;
-}
-
-.dark .experience-card-back {
-  background-color: #8B6647 !important;
-  border-color: #A27B5C !important;
-}
-
-.experience-card-back-title {
-  color: white;
-}
-
-.dark .experience-card-back-title {
-  color: #1a1a1a !important;
-}
-
+/* Expanded details text inside card */
 .experience-card-back-text {
   color: #f5f5f5;
 }

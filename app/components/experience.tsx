@@ -4,7 +4,7 @@ A reusable Work Experience Card component for displaying job roles with title, c
 "use client";
 
 import React, { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Box, Heading, Text, VStack, Stack } from "@chakra-ui/react";
 
 interface WorkExperienceCardProps {
@@ -22,138 +22,102 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
   description,
   details = "Additional details about this role and key achievements.",
 }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
 
-  const MotionBox = motion.create(Box);
-
   return (
-    <Box
+    <motion.div
       ref={ref}
-      mb={6}
-      style={{ perspective: "1000px" }}
-      cursor="pointer"
-      onClick={() => setIsFlipped(!isFlipped)}
-      minH="400px"
-      position="relative"
+      initial={{ opacity: 0, y: 20, scale: 0.97 }}
+      animate={{
+        opacity: isInView ? 1 : 0,
+        y: isInView ? 0 : 20,
+        scale: isInView ? 1 : 0.97,
+      }}
+      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -4, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
+      className="experience-card rounded-xl mb-4 cursor-pointer"
+      onClick={() => setIsExpanded(!isExpanded)}
     >
-      <motion.div
-        initial={{ scale: 0.95, opacity: 0.3, y: 30 }}
-        animate={{
-          scale: isInView ? 1 : 0.95,
-          opacity: isInView ? 1 : 0.3,
-          y: isInView ? 0 : 30,
-          rotateY: isFlipped ? 180 : 0,
-        }}
-        transition={{
-          duration: 0.6,
-          ease: [0.25, 0.46, 0.45, 0.94],
-          scale: { duration: 0.6 },
-          opacity: { duration: 0.4 },
-          rotateY: { duration: 0.6 },
-        }}
-        whileHover={{
-          y: -8,
-          transition: {
-            duration: 0.3,
-            ease: [0.34, 1.56, 0.64, 1],
-          },
-        }}
-        style={{
-          transformStyle: "preserve-3d",
-          position: "relative",
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        {/* Front Side */}
-        <MotionBox
-          className="experience-card"
-          p={8}
-          borderRadius="xl"
-          boxShadow="lg"
-          _hover={{ boxShadow: "2xl" }}
-          position="absolute"
-          width="100%"
-          minH="400px"
-          style={{
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-          }}
-        >
-          <VStack align="start" gap={4}>
-            <Box>
+      <Box p={8}>
+        <VStack align="start" gap={4}>
+          {/* Header */}
+          <Box w="full">
+            <Box display="flex" justifyContent="space-between" alignItems="flex-start">
               <Heading as="h5" size="lg" className="experience-card-title" mb={1}>
                 {title}
               </Heading>
-              <Text
-                fontSize="sm"
-                className="experience-card-subtitle"
-                fontWeight="medium"
+              {/* Chevron indicator */}
+              <motion.div
+                animate={{ rotate: isExpanded ? 180 : 0 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                style={{ marginTop: "4px", flexShrink: 0 }}
               >
-                {company} • {period}
-              </Text>
-            </Box>
-
-            <Stack gap={2} w="full">
-              {description.map((item, index) => (
-                <Text
-                  key={index}
-                  fontSize="sm"
-                  className="experience-card-text"
-                  pl={4}
-                  position="relative"
-                  _before={{
-                    content: '"•"',
-                    position: "absolute",
-                    left: 0,
-                  }}
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  style={{ opacity: 0.7 }}
+                  className="experience-card-title"
                 >
-                  {item}
-                </Text>
-              ))}
-            </Stack>
-
-            <Text fontSize="xs" className="experience-card-subtitle" mt={2} fontStyle="italic">
-              Click to learn more →
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </motion.div>
+            </Box>
+            <Text fontSize="sm" className="experience-card-subtitle" fontWeight="medium">
+              {company} • {period}
             </Text>
-          </VStack>
-        </MotionBox>
+          </Box>
 
-        {/* Back Side */}
-        <MotionBox
-          className="experience-card-back"
-          p={8}
-          borderRadius="xl"
-          boxShadow="lg"
-          position="absolute"
-          width="100%"
-          minH="400px"
-          style={{
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
-          }}
-        >
-          <VStack align="start" gap={4} h="full" justify="center">
-            <Heading as="h5" size="md" className="experience-card-back-title" mb={2}>
-              Details
-            </Heading>
-            <Text
-              fontSize="sm"
-              className="experience-card-back-text"
-              lineHeight="tall"
+          {/* Bullet points */}
+          <Stack gap={2} w="full">
+            {description.map((item, i) => (
+              <Text
+                key={i}
+                fontSize="sm"
+                className="experience-card-text"
+                pl={4}
+                position="relative"
+                _before={{ content: '"•"', position: "absolute", left: 0 }}
+              >
+                {item}
+              </Text>
+            ))}
+          </Stack>
+        </VStack>
+
+        {/* Expandable details */}
+        <AnimatePresence initial={false}>
+          {isExpanded && (
+            <motion.div
+              key="details"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              style={{ overflow: "hidden" }}
             >
-              {details}
-            </Text>
-            <Text fontSize="xs" className="experience-card-subtitle" mt={2} fontStyle="italic">
-              ← Click to go back
-            </Text>
-          </VStack>
-        </MotionBox>
-      </motion.div>
-    </Box>
+              <Box
+                className="experience-card-details"
+                mt={4}
+                pt={4}
+                borderTop="1px solid"
+              >
+                <Text fontSize="sm" className="experience-card-back-text" lineHeight="tall">
+                  {details}
+                </Text>
+              </Box>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </Box>
+    </motion.div>
   );
 };
 

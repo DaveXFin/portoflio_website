@@ -1,8 +1,15 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function ProfileHeader() {
   return (
-    <div className="profile-header flex flex-col md:flex-row items-center md:items-start gap-6 mb-12">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="profile-header flex flex-col md:flex-row items-center md:items-start gap-6 mb-12"
+    >
       {/* Profile Image */}
       <div className="profile-image-container shrink-0">
         <Image
@@ -32,6 +39,6 @@ export default function ProfileHeader() {
           I have a active travel planning app project which I am documenting on the blog section.
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
