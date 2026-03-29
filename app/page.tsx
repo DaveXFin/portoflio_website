@@ -14,11 +14,11 @@ export default function Page() {
         "Planned the features user stories and breaking it into smaller tasks for easier implementation.",
         "Documented the development in the blog on my personal website to share the journey and learnings.",
       ],
-      details: "Working at the European Medicines Agency, I focused on digital transformation initiatives that significantly improved operational efficiency. The translation platform I developed which became a widely used tool for the agency, processing thousands of documents monthly and receiving positive feedback from multiple departments. Saving the agency substantial costs, upwards of 120,000 to 150,000 euros annually. While I deliveing and led a project, I also took the intiative to help in colleagues work such technical(programming), documentation and administrative tasks.",
+      details: "The idea for the application came from personal experience in travelling somewhere to learn more about a culture. I realised the difficulties of planning a trip, especially being the first time visiting the destination. Doing research sometimes was overwhelming as I had to use not just one source to find information to have a rough idea, but also taking time to research different sources. This can always lead to a lot of stress and end up just doing something popular, while not being able to connect with the local feel. I wanted to create an application where users can easily plan their trip and organize it all in one application, while having the option of being able to find more local and unique experiences. This application is currently at the early stages of development and I am learning a lot about fullstack mobile app development. I want to update the blog reguarly about teh applciation develipemnt to reach the MVP stage by the end of Spring 2026.",
     },
     
     {
-      title: "Software Developer | Digital Transformation Associate",
+      title: "Software Developer | Solutions Engineer",
       company: "European Medicines Agency",
       period: "October 2023 - June 2025",
       description: [
@@ -26,8 +26,9 @@ export default function Page() {
         "Developed a pharmaceutical phonetic calculation algorithm calculation enable it to be quantified for comparison across other pharmaceutical names, improving accuracy in internal workflows and reduced the manual labor up to 90%.",
         "Created a dashboard using RShiny with Posit enable it to be quantified for comparison across other pharmaceutical names, improving accuracy in internal workflows.",
         "Managed and maintained a MS Power Automate tool for files automation checking speeding the process by 66%.",
+        "Established standardized documentation practices in Atlassian Confluence, improving team collaboration and project tracking across multiple digital transformation initiatives.",
       ],
-      details: "Working at the European Medicines Agency, I focused on digital transformation initiatives that significantly improved operational efficiency. The translation platform I developed which became a widely used tool for the agency, processing thousands of documents monthly and receiving positive feedback from multiple departments. Saving the agency substantial costs, upwards of 120,000 to 150,000 euros annually. While I deliveing and led a project, I also took the intiative to help in colleagues work such technical(programming), documentation and administrative tasks.",
+      details: "Working at the European Medicines Agency, I focused on digital transformation initiatives to significantly improve the efficiency of the agency's operations. I was managing mutiple different projects simulatnously and these projects range from automating flows to dashboards to full stack softwares. The main project which I was leading and developing was a translation software tool, which is designed to help the colleagues by translating all the documents internally taking only 10 minutes instead of relying on an external company taking up to days. This means it also cuts costs significantly, the tool was estimated to save the internal team up to 150k euros annually. For this project I handled the user story mapping, development and deployment of the software. I also helped the team in setting up the infrastructure documentation standardization in Atlassian Confluence for each project. Created two dashboards one for internal team use to track the softwares usage and another one is a simple powerBI to measure teams tasks and load. During this time I also had the opportunity to assist colleagues in their projects as a support developer.",
     },
     {
       title: "Co-Founder",
@@ -39,7 +40,7 @@ export default function Page() {
         "Integrated the Google firebase as the user management and security.",
         "Co-planned and launched the marketing along with designing the application's trailer video.",
       ],
-      details: "dVox was an project set to exploring the implementation of crypto technology with social media. We built a fully decentralized platform where users owned their content through blockchain technology. This experience taught me valuable lessons about startup development, team collaboration, and emerging technologies.",
+      details: "dVox was an project set to exploring the implementation of crypto blockchain technology with social media. We built a fully decentralized micro bloggin application where the community owned their content through blockchain technology anonymously. The goal of the application was to experiment with using the security features of the blockchain while also creating a platform for students at the university to voice their thoughts/improvements anonymously regarding the university. This experience taught me valuable lessons about startup development, team collaboration, and emerging technologies.",
     },
     {
       title: "Software Engineer Intern",
@@ -59,7 +60,7 @@ export default function Page() {
         "Developed marketing solutions for Dr. David Lee to showcase and promote his research focus on cirrhosis and introduce the research team to attract more funding, public interest and raise general awareness.",
         "Created a plagiarism checking tool for the research team, comparing to the previous publications. This sped up the teams efficiency by 80%.",
       ],
-      details: "This unpaid part time introduced me to the intersection of healthcare and technology. Working with medical researchers, I learned to analyze complex medical concepts into accessible digital content while building tools that streamlined their research workflows. I helpe dthe research to gain more visibility for funding through using simple Google Sites, as it was the optimal solution especially after leaving it allows the non-technical team to easily update and maintain the site themselves.",
+      details: "This unpaid part time introduced me to the intersection of healthcare and technology. Working with medical researchers, I learned to analyze complex medical concepts into accessible digital content while building tools that streamlined their research workflows. I helpe dthe research to gain more visibility for funding through using simple Google Sites, as it was the optimal solution especially after leaving it allows the non-technical team to easily update and maintain the site themselves. I helped in designing the website on the intial stages and also creating the content for the website. I also assisted in the development of a plagisrism tool for the research team and in teh checking process analysis."
     },
   ];
 
