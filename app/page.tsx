@@ -1,6 +1,5 @@
 import WorkExperienceCard from "app/components/experience";
 import ProfileHeader from "app/components/profile-header";
-import WelcomeCard from "app/components/welcome-card";
 import { Timeline, TimelineItem } from "app/components/timeline";
 
 export default function Page() {
@@ -54,11 +53,6 @@ export default function Page() {
   return (
     <section>
       <ProfileHeader />
-
-      <WelcomeCard
-        title="My Portfolio"
-        description="Feel free to explore my work experience and projects below! This portfolio showcases my journey as a software developer, highlighting key projects and professional experiences that have shaped my skills in digital transformation and software development."
-      />
 
       <h2 className="intro-title mb-8 text-2xl font-semibold tracking-tight">
         Work Experience

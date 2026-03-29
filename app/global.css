@@ -151,6 +151,15 @@ html:not(.dark) body {
   position: relative;
 }
 
+.profile-header-divider {
+  height: 1px;
+  background-color: rgba(55, 65, 81, 0.2);
+}
+
+.dark .profile-header-divider {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
 .profile-image {
   border: 3px solid #111111;
   transition: all 0.3s ease;
