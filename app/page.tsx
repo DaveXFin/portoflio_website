@@ -5,6 +5,19 @@ import { Timeline, TimelineItem } from "app/components/timeline";
 export default function Page() {
   const experiences = [
     {
+      title: "Developer | Founder",
+      company: "Travel Buddy",
+      period: "October 2025 - Current",
+      description: [
+        "Currently solo developing an all in one travel planning application, main focus is to give the user a stress planning experience for trip while also experiencing the local culture.",
+        "Established the core architecture and implemented key features for the application.",
+        "Planned the features user stories and breaking it into smaller tasks for easier implementation.",
+        "Documented the development in the blog on my personal website to share the journey and learnings.",
+      ],
+      details: "Working at the European Medicines Agency, I focused on digital transformation initiatives that significantly improved operational efficiency. The translation platform I developed which became a widely used tool for the agency, processing thousands of documents monthly and receiving positive feedback from multiple departments. Saving the agency substantial costs, upwards of 120,000 to 150,000 euros annually. While I deliveing and led a project, I also took the intiative to help in colleagues work such technical(programming), documentation and administrative tasks.",
+    },
+    
+    {
       title: "Software Developer | Digital Transformation Associate",
       company: "European Medicines Agency",
       period: "October 2023 - June 2025",
