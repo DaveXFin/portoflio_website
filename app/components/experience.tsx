@@ -44,32 +44,9 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
         <VStack align="start" gap={4}>
           {/* Header */}
           <Box w="full">
-            <Box display="flex" justifyContent="space-between" alignItems="flex-start">
-              <Heading as="h5" size="lg" className="experience-card-title" mb={1}>
-                {title}
-              </Heading>
-              {/* Chevron indicator */}
-              <motion.div
-                animate={{ rotate: isExpanded ? 180 : 0 }}
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                style={{ marginTop: "4px", flexShrink: 0 }}
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  style={{ opacity: 0.7 }}
-                  className="experience-card-title"
-                >
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </motion.div>
-            </Box>
+            <Heading as="h5" size="lg" className="experience-card-title" mb={1}>
+              {title}
+            </Heading>
             <Text fontSize="sm" className="experience-card-subtitle" fontWeight="medium">
               {company} • {period}
             </Text>
@@ -116,6 +93,40 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Learn more — pinned to bottom of card */}
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          gap={1}
+          mt={4}
+          pt={3}
+          className="experience-card-details"
+          borderTop="1px solid"
+        >
+          <Text fontSize="xs" className="experience-card-subtitle" fontStyle="italic">
+            {isExpanded ? "Show less" : "Learn more"}
+          </Text>
+          <motion.div
+            animate={{ rotate: isExpanded ? 180 : 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="experience-card-subtitle"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </motion.div>
+        </Box>
       </Box>
     </motion.div>
   );

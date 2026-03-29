@@ -18,19 +18,32 @@ export default function ThemeToggle() {
   if (!mounted) {
     return null; // Or a loading skeleton
   }
+  const isDark = theme === "dark";
+
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      style={{
+        padding: "0.5rem",
+        borderRadius: "0.5rem",
+        border: `1.5px solid ${isDark ? "#3B82F6" : "#374151"}`,
+        backgroundColor: isDark ? "rgba(30, 58, 110, 0.4)" : "rgba(17, 17, 17, 0.08)",
+        color: isDark ? "#93C5FD" : "#111111",
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
       aria-label="Toggle theme"
     >
       <motion.div
         key={theme}
         initial={{ opacity: 0, rotate: -30 }}
         animate={{ opacity: 1, rotate: 0 }}
-        transition={{ duration: 0.2 }}
+        transition={{ duration: 0.25 }}
       >
-        {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+        {isDark ? <Sun size={18} /> : <Moon size={18} />}
       </motion.div>
     </button>
   );

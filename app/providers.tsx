@@ -9,11 +9,15 @@ const customConfig = defineConfig({
     tokens: {
       colors: {
         brand: {
-          lightBg: { value: '#DCD7C9' },
-          darkBg: { value: '#2C3930' },
-          darkAccent: { value: '#3F4F44' },
-          lightAccent: { value: '#A27B5C' },
-          brown: { value: '#8B6647' },
+          lightBg: { value: '#F7F7F7' },
+          darkBg: { value: '#0F1624' },
+          darkAccent: { value: '#1E3A6E' },
+          midBlue: { value: '#3B82F6' },
+          slate: { value: '#64748B' },
+          lightSlate: { value: '#94A3B8' },
+          nearBlack: { value: '#111111' },
+          darkGrey: { value: '#374151' },
+          midGrey: { value: '#9CA3AF' },
         },
       },
     },

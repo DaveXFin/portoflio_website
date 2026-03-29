@@ -16,10 +16,10 @@ export default function GlitchBackground() {
 
   // Match the site palette
   const glitchColors = isDark
-    ? ['#3F4F44', '#A27B5C', '#8B6647']
-    : ['#3F4F44', '#2C3930', '#A27B5C']
+    ? ['#1E3A6E', '#3B82F6', '#64748B']
+    : ['#111111', '#374151', '#9CA3AF']
 
-  const bgColor = isDark ? '#2C3930' : '#DCD7C9'
+  const bgColor = isDark ? '#0F1624' : '#F7F7F7'
 
   return (
     <div
@@ -34,6 +34,7 @@ export default function GlitchBackground() {
       }}
     >
       <LetterGlitch
+        key={theme}
         glitchColors={glitchColors}
         backgroundColor={bgColor}
         glitchSpeed={60}
