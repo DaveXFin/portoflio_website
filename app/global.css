@@ -133,8 +133,8 @@ html:not(.dark) body {
 .profile-header {
   padding: 1.5rem;
   border-radius: 0.75rem;
-  background-color: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(55, 65, 81, 0.2);
+  background-color: rgba(220, 220, 220, 0.9);
+  border: 1px solid rgba(55, 65, 81, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: all 0.3s ease;
@@ -242,8 +242,8 @@ html:not(.dark) body {
 
 /* Welcome card styling for light and dark modes */
 .welcome-card {
-  background-color: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(55, 65, 81, 0.2);
+  background-color: rgba(220, 220, 220, 0.9);
+  border: 1px solid rgba(55, 65, 81, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -273,8 +273,8 @@ html:not(.dark) body {
 
 /* Experience card styling for light and dark modes */
 .experience-card {
-  background-color: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(55, 65, 81, 0.2);
+  background-color: rgba(220, 220, 220, 0.9);
+  border: 1px solid rgba(55, 65, 81, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -334,6 +334,25 @@ html:not(.dark) body {
   background-color: rgba(26, 26, 26, 0.2);
 }
 
+/* Company logo / initials badge */
+.experience-card-logo {
+  background-color: rgba(55, 65, 81, 0.1);
+  border: 1px solid rgba(55, 65, 81, 0.2);
+}
+
+.dark .experience-card-logo {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.25);
+}
+
+.experience-card-initials {
+  color: #374151;
+}
+
+.dark .experience-card-initials {
+  color: #93C5FD;
+}
+
 /* Experience card details border */
 .experience-card-details {
   border-color: rgba(55, 65, 81, 0.2);
@@ -350,6 +369,66 @@ html:not(.dark) body {
 
 .dark .experience-card-back-text {
   color: #ffffff !important;
+}
+
+/* Project card styling */
+.project-card {
+  background-color: rgba(220, 220, 220, 0.9);
+  border: 1px solid rgba(55, 65, 81, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .project-card {
+  background-color: rgba(15, 28, 60, 0.85);
+  border-color: rgba(59, 130, 246, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.project-card-title {
+  color: #111111;
+}
+
+.dark .project-card-title {
+  color: #E2E8F0;
+}
+
+.project-card-text {
+  color: #374151;
+}
+
+.dark .project-card-text {
+  color: #CBD5E1;
+}
+
+.project-card-tag {
+  background-color: rgba(55, 65, 81, 0.12);
+  color: #374151;
+  border: 1px solid rgba(55, 65, 81, 0.2);
+}
+
+.dark .project-card-tag {
+  background-color: rgba(59, 130, 246, 0.12);
+  color: #93C5FD;
+  border-color: rgba(59, 130, 246, 0.25);
+}
+
+.project-card-link {
+  color: #374151;
+  transition: color 0.2s ease;
+}
+
+.project-card-link:hover {
+  color: #111111;
+}
+
+.dark .project-card-link {
+  color: #94A3B8;
+}
+
+.dark .project-card-link:hover {
+  color: #E2E8F0;
 }
 
 .dark {

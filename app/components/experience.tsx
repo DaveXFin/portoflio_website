@@ -13,6 +13,7 @@ interface WorkExperienceCardProps {
   period: string;
   description: string[];
   details?: string;
+  logoUrl?: string;
 }
 
 const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
@@ -21,7 +22,14 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
   period,
   description,
   details = "Additional details about this role and key achievements.",
+  logoUrl,
 }) => {
+  const initials = company
+    .split(" ")
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
   const [isExpanded, setIsExpanded] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
@@ -43,13 +51,40 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
       <Box p={8}>
         <VStack align="start" gap={4}>
           {/* Header */}
-          <Box w="full">
-            <Heading as="h5" size="lg" className="experience-card-title" mb={1}>
-              {title}
-            </Heading>
-            <Text fontSize="sm" className="experience-card-subtitle" fontWeight="medium">
-              {company} • {period}
-            </Text>
+          <Box w="full" display="flex" alignItems="flex-start" justifyContent="space-between" gap={4}>
+            <Box flex="1">
+              <Heading as="h5" size="lg" className="experience-card-title" mb={1}>
+                {title}
+              </Heading>
+              <Text fontSize="md" className="experience-card-subtitle" fontWeight="medium">
+                {company} • {period}
+              </Text>
+            </Box>
+
+            {/* Company logo / initials placeholder */}
+            <Box
+              className="experience-card-logo"
+              flexShrink={0}
+              w="48px"
+              h="48px"
+              borderRadius="10px"
+              overflow="hidden"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              {logoUrl ? (
+                <img
+                  src={logoUrl}
+                  alt={`${company} logo`}
+                  style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                />
+              ) : (
+                <span style={{ fontSize: "14px", fontWeight: 700, letterSpacing: "0.02em" }} className="experience-card-initials">
+                  {initials}
+                </span>
+              )}
+            </Box>
           </Box>
 
           {/* Bullet points */}
@@ -57,7 +92,7 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
             {description.map((item, i) => (
               <Text
                 key={i}
-                fontSize="sm"
+                fontSize="md"
                 className="experience-card-text"
                 pl={4}
                 position="relative"
@@ -86,7 +121,7 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
                 pt={4}
                 borderTop="1px solid"
               >
-                <Text fontSize="sm" className="experience-card-back-text" lineHeight="tall">
+                <Text fontSize="md" className="experience-card-back-text" lineHeight="tall">
                   {details}
                 </Text>
               </Box>
@@ -105,7 +140,7 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
           className="experience-card-details"
           borderTop="1px solid"
         >
-          <Text fontSize="xs" className="experience-card-subtitle" fontStyle="italic">
+          <Text fontSize="sm" className="experience-card-subtitle" fontStyle="italic">
             {isExpanded ? "Show less" : "Learn more"}
           </Text>
           <motion.div

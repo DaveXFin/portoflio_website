@@ -1,4 +1,3 @@
-import './global.css'
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
@@ -55,7 +54,7 @@ export default function RootLayout({
       )}
       suppressHydrationWarning
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
+      <body className="antialiased max-w-3xl mx-4 mt-8 lg:mx-auto">
         <Providers>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
             <GlitchBackground />
